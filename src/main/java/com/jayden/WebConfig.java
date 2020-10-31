@@ -7,6 +7,6 @@ import org.springframework.stereotype.Controller;
 import static org.springframework.context.annotation.ComponentScan.*;
 
 @Configuration
-@ComponentScan(excludeFilters = @Filter(Controller.class))
-public class AppConfig {
+@ComponentScan(useDefaultFilters = false, includeFilters = @Filter(Controller.class))
+public class WebConfig {
 }

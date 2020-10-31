@@ -15,27 +15,26 @@
         <param-value>com.jayden.AppConfig</param-value>
     </context-param>
 
-    <filter>
-        <filter-name>helloFilter</filter-name>
-        <filter-class>com.jayden.HelloFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>helloFilter</filter-name>
-        <servlet-name>helloServlet</servlet-name>
-    </filter-mapping>
-
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
     <servlet>
-        <servlet-name>helloServlet</servlet-name>
-        <servlet-class>com.jayden.HelloServlet</servlet-class>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>com.jayden.WebConfig</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>helloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
+
 </web-app>
